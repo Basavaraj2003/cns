@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Intrusion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/predict">Predict</a>
+        <a href="/upload">Upload</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h2>Intrusion Detection System</h2>
+        </div>
+
+        <div class="form-container">
+            <h3>Packet Details</h3>
+            <p>Please fill the below information:</p>
+            <form action="#" method="POST" id="packet-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fwd_packet_length_max">Fwd Packet Length Max:</label>
+                        <input type="text" id="fwd_packet_length_max" name="fwd_packet_length_max" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avg_fwd_segment_size">Avg Fwd Segment Size:</label>
+                        <input type="text" id="avg_fwd_segment_size" name="avg_fwd_segment_size" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subflow_fwd_bytes">Subflow Fwd Bytes:</label>
+                        <input type="text" id="subflow_fwd_bytes" name="subflow_fwd_bytes" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="flow_iat_max">Flow IAT Max:</label>
+                        <input type="text" id="flow_iat_max" name="flow_iat_max" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="average_packet_size">Average Packet Size:</label>
+                        <input type="text" id="average_packet_size" name="average_packet_size" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avg_bwd_segment_size">Avg Bwd Segment Size:</label>
+                        <input type="text" id="avg_bwd_segment_size" name="avg_bwd_segment_size" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fwd_packet_length_mean">Fwd Packet Length Mean:</label>
+                        <input type="text" id="fwd_packet_length_mean" name="fwd_packet_length_mean" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="init_win_bytes_forward">Init Win Bytes Forward:</label>
+                        <input type="text" id="init_win_bytes_forward" name="init_win_bytes_forward" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bwd_packet_length_std">Bwd Packet Length Std:</label>
+                        <input type="text" id="bwd_packet_length_std" name="bwd_packet_length_std" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bwd_packets_per_s">Bwd Packets/s:</label>
+                        <input type="text" id="bwd_packets_per_s" name="bwd_packets_per_s" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="init_win_bytes_backward">Init Win Bytes Backward:</label>
+                        <input type="text" id="init_win_bytes_backward" name="init_win_bytes_backward" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fwd_packet_length_std">Fwd Packet Length Std:</label>
+                        <input type="text" id="fwd_packet_length_std" name="fwd_packet_length_std" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="flow_packets_per_s">Flow Packets/s:</label>
+                        <input type="text" id="flow_packets_per_s" name="flow_packets_per_s" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="packet_length_mean">Packet Length Mean:</label>
+                        <input type="text" id="packet_length_mean" name="packet_length_mean" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="packet_length_variance">Packet Length Variance:</label>
+                        <input type="text" id="packet_length_variance" name="packet_length_variance" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fwd_iat_max">Fwd IAT Max:</label>
+                        <input type="text" id="fwd_iat_max" name="fwd_iat_max" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="check-packet-btn">Check Packet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

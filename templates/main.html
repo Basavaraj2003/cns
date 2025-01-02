@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard">
+            <h1>Welcome to the Intrusion Detection System</h1>
+            <div class="sections">
+                <button id="upload-btn">Upload</button>
+                <button id="predict-btn">Predict</button>
+                <button id="logout-btn">Logout</button>
+            </div>
+            
+            <div id="predict-section">
+                <h3>Prediction Results</h3>
+                <!-- Here you can add content like charts, graphs, etc. -->
+                <p>Prediction results will appear here.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

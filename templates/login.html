@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Intrusion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="login-form" method="POST" action="/login">
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                <button type="submit" id="login-btn">Login</button>
+                <p id="error-message" style="color:red;"></p>
+            </form>
+            <p><a href="/forgot_password">Forgot Password?</a></p>
+            <p>Don't have an account? <a href="/register">Register</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `email=${email}&password=${password}`
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Invalid credentials'); // Throw error if response is not OK
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = '/dashboard.html';  // Redirect to main dashboard
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('error-message').textContent = "An error occurred. Please try again."; // Show error message
+            });
+        });
+    </script>
+</body>
+</html>
